@@ -32,7 +32,7 @@ const Ads = () => {
         ].map((item) => (
           <div
             key={item.id}
-            className="keen-slider__slide h-full bg-purple-500 text-white text-center flex flex-col justify-between p-2 relative"
+            className="keen-slider__slide h-full bg-purple-800 rounded text-white text-center flex flex-col justify-between p-2 relative"
           >
             {/* Viewers Count */}
             <span className="absolute z-30 top-2 left-2 bg-black/50 text-white px-2 py-1 text-sm rounded">

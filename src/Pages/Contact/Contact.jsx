@@ -215,7 +215,7 @@ const handleSubmit = async (e) => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <button onClick={handleSubmit} className="SliderButton w-full text-yellow cursor-pointer uppercase bg-red px-4 py-1 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#4e2a1b,-0.5rem_-0.5rem_#4e2a1b] hover:bg-yellow hover:text-red transition">
+                    <button onClick={handleSubmit} className="SliderButton w-full text-yellow cursor-pointer uppercase bg-purple-800 px-4 py-1 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#6b21a8,-0.5rem_-0.5rem_#6b21a8] hover:bg-purple-50 hover:text-red transition">
                       Send message
                     </button>
                   </div>
@@ -225,7 +225,7 @@ const handleSubmit = async (e) => {
           </div>
         </div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.760930752891!2d80.21251457439841!3d13.050883713136447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526728b5e8b715%3A0xf462cd326408c3c5!2sShri%20Works!5e0!3m2!1sen!2sin!4v1724408940206!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3517.31623056104!2d80.21254447507785!3d13.050874787271807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267f622160271%3A0x3149fc03560d447!2sJGN%20Technologies!5e1!3m2!1sen!2sin!4v1740549447712!5m2!1sen!2sin"
           width="100%"
           height="400"
           style={{ padding: "0px 40px 60px 40px" }}
