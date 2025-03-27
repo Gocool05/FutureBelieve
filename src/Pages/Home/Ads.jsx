@@ -1,59 +1,87 @@
 import React from 'react'
-import { useKeenSlider } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
+import Slider from "react-slick";
 
 const Ads = () => {
-    const [opacities, setOpacities] = React.useState([])
-    const [sliderRef] = useKeenSlider({
-        loop: true,
-        mode: "free",
-        slides: { origin: "center", perView: 4, spacing: 10 },
-        range: {
-          min: -5,
-          max: 5,
-        },
-        detailsChanged(s) {
-            const new_opacities = s.track.details.slides.map((slide) => slide.portion)
-            setOpacities(new_opacities)
-          },
-      })
-    
-      return (
-        <>
-            <h2 className='uppercase text-center text-purple-800 text-[3rem] z-10'> Lastest Update</h2>
-        <div ref={sliderRef} className="keen-slider p-20 max-w-full">
-        {[
-          { id: 1, videoSrc: "video1.mp4", name: "Video 1", views: "1.2K" },
-          { id: 2, videoSrc: "video2.mp4", name: "Video 2", views: "800" },
-          { id: 3, videoSrc: "video3.mp4", name: "Video 3", views: "2.5K" },
-          { id: 4, videoSrc: "video4.mp4", name: "Video 4", views: "3.1K" },
-          { id: 5, videoSrc: "video5.mp4", name: "Video 5", views: "4.0K" },
-          { id: 6, videoSrc: "video6.mp4", name: "Video 6", views: "5.7K" },
+
+  var settings = {
+    infinite: true,
+    gap:10,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 2000,
+    swipeToSlide: true,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+         
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
+  return (
+<>
+<h2 className='text-6xl md:text-7xl font-bold mb-5 text-center text-purple-800 overflow-hidden'>Upcoming Ads</h2>
+<div className='justify-center items-center flex overflow-x-hidden'>
+
+<div className='max-w-6xl'>
+<Slider {...settings} className='py-10 '>
+  {[
+          { id: 1, videoSrc: "sample.mp4", name: "Video 1", views: "1.2K" },
+          { id: 2, videoSrc: "sample.mp4", name: "Video 2", views: "800" },
+          { id: 3, videoSrc: "sample.mp4", name: "Video 3", views: "2.5K" },
+          { id: 4, videoSrc: "sample.mp4", name: "Video 4", views: "3.1K" },
+          { id: 5, videoSrc: "sample.mp4", name: "Video 5", views: "4.0K" },
+          { id: 6, videoSrc: "sample.mp4", name: "Video 6", views: "5.7K" },
         ].map((item) => (
           <div
             key={item.id}
-            className="keen-slider__slide h-full bg-purple-800 rounded text-white text-center flex flex-col justify-between p-2 relative"
+            className=" w-full flex gap-5 relative   text-white text-center  px-4"
           >
             {/* Viewers Count */}
-            <span className="absolute z-30 top-2 left-2 bg-black/50 text-white px-2 py-1 text-sm rounded">
+            <span className="absolute z-50 top-3 left-4 bg-purple-800 text-white font-semibold px-2 py-1 text-sm rounded">
               👁 {item.views}
             </span>
       
             {/* Video */}
             <video
               src={item.videoSrc}
-              className="w-full h-full object-cover rounded-lg"
-              controls
+              className="w-full h-auto object-cover rounded-t-xl"
+              autoPlay
+              muted
             />
       
             {/* Video Name */}
-            <p className="text-lg mt-2">{item.name}</p>
+            <p className="text-lg rounded-b-xl bg-purple-800 py-1">{item.name}</p>
           </div>
         ))}
-      </div>
-        </>
-      
-      )
+  </Slider>
+</div>
+</div>
+</>
+  )
 }
 
 export default Ads

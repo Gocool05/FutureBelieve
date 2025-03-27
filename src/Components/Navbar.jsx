@@ -1,99 +1,113 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CgMenuRightAlt } from "react-icons/cg";
+import AuthModal from "../Pages/Auth/AuthModal";
+
 const Navbar = () => {
-    const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [bgColor, setBgColor] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-    const [bgColor, setBgColor] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setBgColor(true);
-            } else {
-                setBgColor(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    const showNav = () => {
-      setToggle(!toggle);
-    };
-  
-    const navbarData = [
-        {
-          title: "Home",
-          href: "/",
-          cname:
-            "border-t font-medium w-full flex justify-center p-2.5 mt-3 md:border-none md:p-0 md:mt-0 md:w-auto"
-        },
-        {
-          title: "About us",
-          href: "/about-us",
-          cname:
-            "border-t font-medium w-full flex justify-center p-2.5 md:border-none md:p-0 md:w-auto"
-        },
-        {
-          title: "Services",
-          href: "/",
-          cname:
-            "border-t font-medium w-full flex justify-center p-2.5 md:border-none md:p-0 md:w-auto"
-        },
-        {
-          title: "Contact",
-          href: "/contact",
-          cname:
-            "border-t border-b font-medium w-full flex justify-center p-2.5 md:border-none md:p-0 md:w-auto"
+  useEffect(() => {
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            setBgColor(true);
+        } else {
+            setBgColor(false);
         }
-      ];
+    };
 
-      
-    // start mobile first plus facile
-    return (
-      <nav className={`fixed z-50 top-0 w-full ${bgColor ? 'bg-purple-600' : 'bg-transparent'}  items-center flex p-4`}>
-        <div className="flex justify-between items-center w-full flex-wrap md:flex-nowrap">
-          <h1 className="text-xl text-white font-bold cursor-pointer">Future Believe</h1>
-  
-          <button
-            className="flex justify-end md:hidden ring-1 ring-black rounded"
-            onClick={showNav}
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []);
+
+const showNav = () => {
+  setToggle(!toggle);
+};
+
+  const navbarData = [
+    { title: "Home", href: "/" },
+    { title: "About us", href: "/about-us" },
+    { title: "Dealers", href: "/dealers" },
+    { title: "Contact", href: "/contact" },
+  ];
+
+  return (
+    <nav
+      className={`fixed z-50 top-0 left-0 min-w-full h-20 px-5 md:px-20 flex justify-between items-center transition-all duration-300 ${
+        bgColor ? "bg-purple-900 shadow-md" : "bg-transparent"
+      }`}
+    >
+      {/* Logo */}
+      <img className="md:h-14 h-12" src="/LOGO.png" alt="Logo" />
+
+      {/* Mobile Menu Icon */}
+      <CgMenuRightAlt
+        onClick={() => setToggle(!toggle)}
+        className="md:hidden h-6 w-6 text-white cursor-pointer"
+      />
+
+      {/* Navigation Links */}
+      <div className="hidden md:flex space-x-10">
+        {navbarData.map((link, index) => (
+          <Link
+            key={index}
+            className="text-white hover:text-purple-400 transition-all"
+            to={link.href}
           >
-            <i className="fas fa-bars text-white w-9 h-9 flex justify-center items-center hover:text-black"></i>
-          </button>
-  
-          <ul
-            className={`${
-              toggle ? " flex" : " hidden"
-            } flex-col justify-center items-center w-full first:mt-2 md:flex-row md:w-auto md:space-x-10 md:flex`}
-          >
-            {navbarData.map((link, index) => {
-              return (
-                <li key={index} className={link.cname}>
-                  <Link
-                    className="text-white hover:text-purple-400"
-                    to={link.href}
-                    onClick={showNav}
-                  >
-                    {link.title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+            {link.title}
+          </Link>
+        ))}
+      </div>
+
+      {/* Login & Playstore Icon */}
+      <div className=" hidden md:flex items-center gap-5">
+        <button
+          className="flex border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-medium px-4 py-1 rounded"
+          onClick={() => setModalOpen(true)}
+        >
+          Login
+        </button>
+
+        <img
+          className="h-12 cursor-pointer "
+          src="/PlayStore Png.png"
+          alt="Playstore Logo"
+        />
+      </div>
+
+      {/* Mobile Menu */}
+      {toggle && (
+        <div className="absolute top-[80px] left-0 w-full bg-purple-900 text-white flex flex-col items-center space-y-4 py-5 md:hidden">
+          {navbarData.map((link, index) => (
+            <Link
+              key={index}
+              className="w-full text-center py-2 hover:bg-purple-700"
+              to={link.href}
+              onClick={() => setToggle(false)}
+            >
+              {link.title}
+            </Link>
+          ))}
+
           <button
-            className={`${
-              toggle ? " flex" : " hidden"
-            } text-indigo-800 hover:bg-gray-300 mx-auto md:mx-0 md:flex md:mt-0 items-center justify-center font-medium bg-gray-100 px-1 p-2 rounded-lg mt-4 w-24`}
+            className="w-3/4 border-2 border-white py-2 text-white hover:bg-white hover:text-purple-500 rounded"
+            onClick={() => {
+              setModalOpen(true);
+              setToggle(false);
+            }}
           >
             Login
           </button>
         </div>
-      </nav>
-    );
-}
+      )}
 
-export default Navbar
+      {/* Auth Modal */}
+      <AuthModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+    </nav>
+  );
+};
+
+export default Navbar;

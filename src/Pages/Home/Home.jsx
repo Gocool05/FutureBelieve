@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import DealerMap from "../DealerMap/DealerMap";
 import Ads from "./Ads";
 import Hero from "./Hero";
 import HomeCarousel from "./HomeCarousel";

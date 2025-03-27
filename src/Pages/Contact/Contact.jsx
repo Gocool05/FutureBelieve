@@ -36,7 +36,7 @@ const handleSubmit = async (e) => {
 //       toast.error('Something went wrong, please try again later!');
 //     }
 //   } else {
-//     toast.error('Please fill all the required fields');
+//     toast.error('Please fill all the requipurple-700 fields');
 //   }
 };
   return (
@@ -48,7 +48,7 @@ const handleSubmit = async (e) => {
     {/* Overlay */}
     <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
-    {/* Centered Text */}
+    {/* Centepurple-700 Text */}
     <div className='absolute inset-0 flex flex-col items-center text-center uppercase justify-center'>
     <h2 className=" text-white text-5xl  font-bold z-10">
     Contact Us
@@ -63,14 +63,14 @@ const handleSubmit = async (e) => {
             <div className="grid md:grid-cols-2">
               <div className="h-full pr-6">
                 <p className="mt-3 mb-12 text-lg text-justify sm:text-left text-black opacity-80 ">
-                  At shriworks, our contact support team is here to assist you
+                  At FutureBelieve, our contact support team is here to assist you
                   with any questions or planning needs. Reach out to us for
                   prompt and personalized service to ensure your event's
                   success.
                 </p>
                 <ul className="mb-6 md:mb-0">
                   <li className="flex">
-                    <div className="flex h-10 w-10 items-center justify-center rounded bg-red">
+                    <div className="flex h-10 w-10 items-center justify-center rounded bg-purple-700">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -91,16 +91,16 @@ const handleSubmit = async (e) => {
                       <h3 className="mb-2 text-lg font-bold leading-6 text-black">
                         Our Address
                       </h3>
-                      <p className="text-red opacity-90">
+                      <p className="text-purple-700 opacity-90">
                         242A, Arcot Rd, Vadapalani,
                       </p>
-                      <p className="text-red opacity-90">
+                      <p className="text-purple-700 opacity-90">
                         Chennai, Tamil Nadu 600026.<br/>(Near Vadapalani Post Office)
                       </p>
                     </div>
                   </li>
                   <li className="flex">
-                    <div className="flex h-10 w-10 items-center justify-center rounded bg-red">
+                    <div className="flex h-10 w-10 items-center justify-center rounded bg-purple-700">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -122,16 +122,16 @@ const handleSubmit = async (e) => {
                       <h3 className="mb-2 text-lg font-bold leading-6 text-black">
                         Contact
                       </h3>
-                      <p className="text-red opacity-90 ">
-                        Mobile: (+91) 91765 54626
+                      <p className="text-purple-700 opacity-90 ">
+                        Mobile: (+91) 9xxxx xxxx0
                       </p>
-                      <p className="text-red opacity-90 ">
-                        Mail: Info@shriworks.com
+                      <p className="text-purple-700 opacity-90 ">
+                        Mail: Info@futurebelieve.com
                       </p>
                     </div>
                   </li>
                   <li className="flex">
-                    <div className="flex h-10 w-10 items-center justify-center rounded  bg-red">
+                    <div className="flex h-10 w-10 items-center justify-center rounded  bg-purple-700">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -152,10 +152,10 @@ const handleSubmit = async (e) => {
                       <h3 className="mb-2 text-lg font-bold leading-6 text-black">
                         Working hours
                       </h3>
-                      <p className="text-red opacity-90 ">
+                      <p className="text-purple-700 opacity-90 ">
                         Monday - Saturday: 10:00 AM - 8:30 PM
                       </p>
-                      <p className="text-red opacity-90 ">
+                      <p className="text-purple-700 opacity-90 ">
                         Sunday: 10:00 AM - 2:30 PM
                       </p>
                     </div>
@@ -179,7 +179,7 @@ const handleSubmit = async (e) => {
                           id="name"
                           autocomplete="given-name"
                           placeholder="Your name"
-                          className="mb-2 w-full bg-white rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-red sm:mb-0"
+                          className="mb-2 w-full caret-purple-700 bg-white rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-purple-700 sm:mb-0"
                           name="name"
                           onChange={(e)=>setName(e.target.value)}
                         />
@@ -192,7 +192,7 @@ const handleSubmit = async (e) => {
                         <input
                           type="email"
                           placeholder="Your email address"
-                          className="mb-2 w-full rounded-md border bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-red sm:mb-0"
+                          className="mb-2 w-full rounded-md border caret-purple-700 bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-purple-700 sm:mb-0"
                           name="email"
                           onChange={(e) => setEmail(e.target.value)} 
                         />
@@ -209,13 +209,13 @@ const handleSubmit = async (e) => {
                         cols="30"
                         rows="5"
                         placeholder="Write your message..."
-                        className="mb-2 w-full rounded-md border active:border-gold bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-red sm:mb-0"
+                        className="mb-2 w-full rounded-md border caret-purple-700  bg-white  py-2 pl-2 pr-4 shadow-md text-purple-700 sm:mb-0"
                         onChange={(e)=>setMessage(e.target.value)}
                       ></textarea>
                     </div>
                   </div>
                   <div className="text-center">
-                    <button onClick={handleSubmit} className="SliderButton w-full text-yellow cursor-pointer uppercase bg-purple-800 px-4 py-1 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#6b21a8,-0.5rem_-0.5rem_#6b21a8] hover:bg-purple-50 hover:text-red transition">
+                    <button onClick={handleSubmit} className="SliderButton w-full text-white cursor-pointer uppercase bg-purple-800 px-4 py-1 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#6b21a8,-0.5rem_-0.5rem_#6b21a8] hover:bg-purple-50 hover:text-black transition">
                       Send message
                     </button>
                   </div>
