@@ -19,9 +19,9 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
 function App() {
+  
   const location = useLocation();
   const endpoint = location.pathname;
-
     useEffect(()=>{
       window.scrollTo(0,0);
     },[location])

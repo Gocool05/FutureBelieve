@@ -1,6 +1,38 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 const Testimonials = () => {
+
+
+    const[test,setTest]= useState('');
+
+    useEffect(()=>{
+        const fetchTestimonials = async () =>{
+            try {
+                const formData = new FormData();
+                formData.append('process', 'testimonials');
+        
+                const response = await axios.post(
+                  'https://www.futurebelieve.in/index.php/siteapi',
+                  formData,
+                  {
+                    headers: {
+                      'Content-Type': 'multipart/form-data',
+                    },
+                  }
+                );
+        
+                console.log("Raw response: ", response.data); 
+                  setTest(response.data)
+              } catch (error) {
+                console.error('Error fetching videos:', error);
+              }
+            };
+        
+            fetchTestimonials();
+          }, []);
+        //   console.log(test,'Testimonial')
+
   return (
    <>
    <div className=" flex items-center justify-center ">

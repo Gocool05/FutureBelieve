@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Hero = () => {
+
   return (
     <>
     <div data-aos="flip-up" className="flex h-full py-20 justify-center items-center  overflow-x-hidden">
